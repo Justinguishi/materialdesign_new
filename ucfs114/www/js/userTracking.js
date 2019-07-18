@@ -49,9 +49,9 @@ function getDistanceFromPoint(position) {
 
 		// these are the coordinates for Warren Street
 
-		var lat = 51.524616;
+		var lat = 30.717907388913197;
 
-		var lng =  -0.13818;
+		var lng =  104.09583621076891;
 
 		// return the distance in kilometers
 
