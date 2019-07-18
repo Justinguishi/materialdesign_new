@@ -71,7 +71,7 @@ function getDistance1()
 
 	navigator.geolocation.getCurrentPosition(getDistanceFromMultiplePoints);
 
-	alert("Calculating Distance...");
+	//alert("Calculating Distance...");
 
 }
 		
