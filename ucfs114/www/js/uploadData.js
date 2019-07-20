@@ -30,7 +30,11 @@ function startDataUpload()
  var language = document.getElementById("languageselectbox").value; 
  postString = postString + "&language="+language; 
 
- 
+ var latitude = document.getElementById("latitude").value; 
+ var longitude = document.getElementById("longitude").value; 
+ postString = postString + "&latitude=" + latitude + "&longitude=" + 
+longitude; 
+
  
  alert (postString);
  processData(postString);
