@@ -21,12 +21,13 @@
 
 	<label for="module">Module</label><input type="text" size="25" id="module"/><br />
 
+<!--single choice-->
 	<p>Would you like lectures in the morning or afternoon?</p> 
  Morning: <input type="radio" name="amorpm" id="morning" /><br /> 
  Afternoon: <input type="radio" name="amorpm" id ="afternoon"/><br /> 
  
  
- 
+ <--!mutiple choice-->
 <p>Which modules are you taking?</p> 
  CEGEG077: <input type="checkbox" name="modules" id = check1 value="CEGEG077" 
 checked="yes" /><br /> 
@@ -48,5 +49,8 @@ checked="yes" /><br />
  
 </select> 
 <br /> 
+
+<button id="startUpload" onclick="startDataUpload()">Start Data Upload</button> 
+<div id="dataUploadResult">The result of the upload goes here</div> 
 
  </body> 
