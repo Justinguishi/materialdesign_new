@@ -9,6 +9,7 @@
 
 	function startup(){
 	document.addEventListener('DOMContentLoaded',function(){
-		trackAndCircle();
+		//trackAndCircle();
+		getPort();
 	},false);
 }	     
