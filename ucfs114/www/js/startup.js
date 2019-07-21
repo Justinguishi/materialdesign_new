@@ -6,9 +6,16 @@
 		getEarthquakes();
 		}
 
+		
+	function loadW3HTML() { 
+	w3.includeHTML();
+	} 
+
 
 	function startup(){
 	document.addEventListener('DOMContentLoaded',function(){
-		trackAndCircle();
+		//trackAndCircle();
+		getPort();
+		loadW3HTML();
 	},false);
 }	     
