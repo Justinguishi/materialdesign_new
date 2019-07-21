@@ -1,17 +1,19 @@
-var xhrNode; 
+var xhrNode; // define the global variable to process the AJAX request
+var httpPortNumber;
+
+
+function callDivNodeJSChange(){
 
 	
+	alert(httpPortNumber);
 
-	function callDivNodeJSChange() { 
+	xhrNode = new XMLHttpRequest();
 
-	 xhrNode = new XMLHttpRequest(); 
+	var url = "http://developer.cege.ucl.ac.uk:"+httpPortNumber;
 
-	 var url = "http://developer.cege.ucl.ac.uk:"+httpPortNumber; 
-	 alert("url");
+	xhrNode.open("GET", url, true);
 
-	  xhrNode.open("GET",url,true); 
-
-	  xhrNode.onreadystatechange=processDivNodeJSChange; 
+	xhrNode.onreadystatechange=processDivNodeJSChange; 
 
 	  try { 
 
@@ -33,7 +35,7 @@ var xhrNode;
 
 	if (xhrNode.readyState < 4)                         // while waiting response from server 
 
-			document.getElementById('ajaxtext').innerHTML = "Loading..."; 
+			document.getElementById('ajax1').innerHTML = "Loading..."; 
 
 	 
 
@@ -41,7 +43,7 @@ var xhrNode;
 
 			if (xhrNode.status == 200 && xhrNode.status < 300)    // http status between 200 to 299 are all successful 
 
-				document.getElementById('ajaxtext').innerHTML = xhrNode.responseText; 
+				document.getElementById('ajax1').innerHTML = xhrNode.responseText; 
 
 		} 
 

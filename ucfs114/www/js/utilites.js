@@ -17,7 +17,7 @@ function getPort(){
 
 		httpsPortNumber= doc.getElementsByTagName("node-port-https").item(0).textContent;
 
-		alert("Port : " + httpPortNumber);
+		//alert("Port : " + httpPortNumber);
 		});
 
 
