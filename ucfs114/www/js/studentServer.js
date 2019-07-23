@@ -35,12 +35,6 @@ var pool = new pg.Pool(config);
  httpServer.listen(4480); 
  
 
-
- 
-
-
-
- 
 app.get('/postgistest', function (req,res) { 
 pool.connect(function(err,client,done) { 
        if(err){ 
@@ -59,7 +53,7 @@ pool.connect(function(err,client,done) {
 }); 
 
  
- /*
+ 
  app.get('/:fileName', function (req, res) { 
   // run some server-side code 
    var fileName = req.params.fileName; 
@@ -67,7 +61,7 @@ pool.connect(function(err,client,done) {
   // note that __dirname  gives the path to the studentServer.js file 
  res.sendFile(__dirname + '/'+ fileName); 
 }); 
-*/
+
 
 
 
@@ -88,16 +82,40 @@ pool.connect(function(err,client,done) {
    next(); 
  }); 
  
-
-app.post('/reflectData',function(req,res){ 
+ 
+ 
+app.post('/uploadData',function(req,res){ 
  // note that we are using POST here as we are uploading data 
- // so the parameters form part of the BODY of the request rather  
-      //than the RESTful API 
+ // so the parameters form part of the BODY of the request rather than the 
+RESTful API 
  console.dir(req.body); 
  
- // for now, just echo the request back to the client 
- res.send(req.body); 
+  pool.connect(function(err,client,done) { 
+        if(err){ 
+           console.log("not able to get connection "+ err); 
+            res.status(400).send(err); 
+        }  
+var name = req.body.name; 
+var surname = req.body.surname; 
+var module = req.body.module; 
+var portnum = req.body.port_id; 
+ 
+        var querystring = "INSERT into formdata (name,surname,module, port_id) 
+values ($1,$2,$3,$4) "; 
+        console.log(querystring); 
+        client.query( querystring,[name,surname,module, 
+portnum],function(err,result) { 
+          done();  
+          if(err){ 
+               console.log(err); 
+               res.status(400).send(err); 
+          } 
+          res.status(200).send("row inserted"); 
+       }); 
+    }); 
+ 
 }); 
+
 
  
  // serve static files - e.g. html, css 
